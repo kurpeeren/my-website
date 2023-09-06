@@ -423,13 +423,29 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 .decode-text {
   width: 100%;
-  font-size: 20px;
+  font-size: 2vw;
   text-align: center;
+}
+
+/* Maksimum font boyutunu kontrol etme */
+@media screen and (min-width: 1600px) {
+  .decode-text {
+    font-size: 20px; /* 1600px veya daha fazla ekran genişliğinde maksimum font boyutu */
+  }
+
+}
+@media screen and (max-width: 800px) {
+  .text-animation {
+    margin-right: 0px;
+  }
+  .space {
+    width:  20px;
+  }
 }
 
 .space {
   display: inline-block;
-  width: 20px;
+  width: 1vw;
 }
 
 .text-animation {
@@ -437,7 +453,9 @@ body {
   position: relative;
   color: transparent;
   text-transform: uppercase;
-  margin-right: 5px;
+  margin-right: 3px;
+  word-wrap: break-word; /* Metni kelime kelime alt satıra geçir */
+  overflow-wrap: break-word; /* Farklı tarayıcılar için */
 }
 .text-animation:before {
   content: "";
