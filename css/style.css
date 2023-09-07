@@ -50,6 +50,7 @@ body {
   animation: border-flicker 2s linear infinite;
 }
 
+
 .glowing-txt {
   float: left;
   margin-right: -0.8em;
