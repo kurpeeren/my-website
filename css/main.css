@@ -9044,7 +9044,7 @@ fieldset:disabled .btn {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: rgba(var(--bs-body-text-color), var(--bs-text-opacity)) !important;
 }
 
 .text-secondary {
@@ -12773,8 +12773,26 @@ p.lead {
   margin-right: 0;
 }
 
-.social-icons .social-icon:hover {
+/* .social-icons .social-icon:hover {
   background-color: #bd5d38;
+} */
+
+
+
+.social-icons .social-icon#github:hover {
+  background-color: #a1a1a1;
+}
+
+.social-icons .social-icon#linkedin:hover {
+  background-color: #1da1f2;
+}
+
+.social-icons .social-icon#instagram:hover{
+  background-color: #e1306c;
+}
+
+.social-icons .social-icon#youtube:hover{
+  background-color: rgb(255, 79, 79);
 }
 
 .dev-icons {
@@ -12833,3 +12851,4 @@ section.resume-section .resume-section-content {
   }
   
 }
+
