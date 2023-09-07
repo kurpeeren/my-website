@@ -414,7 +414,6 @@ body {
   background-color: var(--glow-color);
   border-radius: 50%; /* Daire şekli */
   position: absolute;
-  display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 0vh;
@@ -426,6 +425,7 @@ body {
   font-size: 2vw;
   text-align: center;
 }
+
 
 /* Maksimum font boyutunu kontrol etmeeeee */
 @media screen and (min-width: 1600px) {
