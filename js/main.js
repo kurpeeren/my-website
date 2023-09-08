@@ -1,3 +1,8 @@
+/*!
+* Start Bootstrap - Resume v7.0.6 (https://startbootstrap.com/theme/resume)
+* Copyright 2013-2023 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
+*/
 //
 // Scripts
 // 
@@ -30,7 +35,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 const githubUsername = 'kurpeeren'; // GitHub kullanıcı adı
 const repoName = 'kurpeeren'; // Depo adı
-const apiToken = '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'; // GitHub API anahtarı
+const apiToken = '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'; // GitHub API anahtarı
 
 // GitHub API'sı üzerinden README dosyasının içeriğini çekme
 fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
@@ -54,25 +59,19 @@ fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
         if (match) {
             const extractedText = match[1];
             console.log(extractedText);
-            try {
 
-                // README içeriğini HTML olarak işleme
-                const parser = new DOMParser();
-                const readmeHTML = parser.parseFromString(extractedText, 'text/html');
+            // README içeriğini HTML olarak işleme
+            const parser = new DOMParser();
+            const readmeHTML = parser.parseFromString(extractedText, 'text/html');
 
-                // "Languages and Tools" başlığını içeren bölümü seçme
-                const languagesAndToolsSection = readmeHTML.querySelector('.logolist');
+            // "Languages and Tools" başlığını içeren bölümü seçme
+            const languagesAndToolsSection = readmeHTML.querySelector('.logolist');
 
-                // İlgili HTML içeriğini hedef elemente yerleştirme
-                const targetElement = document.querySelector('.github-programingandtools');
-                targetElement.innerHTML = languagesAndToolsSection.innerHTML;
+            // İlgili HTML içeriğini hedef elemente yerleştirme
+            const targetElement = document.querySelector('.github-programingandtools');
+            targetElement.innerHTML = languagesAndToolsSection.innerHTML;
 
-                console.log(targetElement.innerHTML);
-
-
-            } catch (error) {
-                console.error('README dosyası işleme hatası:', error);
-            }
+            console.log(targetElement.innerHTML);
         } else {
             console.log("Belirtilen etiketler arasında metin bulunamadı.");
         }
@@ -80,5 +79,3 @@ fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
     .catch((error) => {
         console.error('GitHub API hatası:', error);
     });
-
-
