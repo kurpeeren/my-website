@@ -12853,7 +12853,7 @@ section.resume-section .resume-section-content {
 }
 
 .ag-format-container {
-  width: 1142px;
+  width: 70vw;
   margin: 0 auto;
 }
 
@@ -12909,7 +12909,7 @@ body {
   overflow: hidden;
   
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
   color: #FFF;
 
   z-index: 2;
@@ -12924,7 +12924,7 @@ body {
 }
 .ag-courses-item_date {
   font-weight: bold;
-  color: #f9b234;
+  color: var(--glow-color);
 
   -webkit-transition: color .5s ease;
   -o-transition: color .5s ease;
@@ -12998,4 +12998,9 @@ body {
   .ag-courses-item_date-box {
     font-size: 16px;
   }
+}
+
+.project-img-component{
+ width: 100%;
+
 }

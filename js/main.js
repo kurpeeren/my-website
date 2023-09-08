@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 const githubUsername = 'kurpeeren'; // GitHub kullanıcı adı
 const repoName = 'kurpeeren'; // Depo adı
-const apiToken = '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'; // GitHub API anahtarı
+const apiToken = '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'; // GitHub API anahtarı
 
 // GitHub API'sı üzerinden README dosyasının içeriğini çekme
 fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
@@ -79,3 +79,40 @@ fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
     .catch((error) => {
         console.error('GitHub API hatası:', error);
     });
+
+
+
+// GitHub API'sı üzerinden kullanıcının tüm repolarını çekme
+fetch(`https://api.github.com/users/${githubUsername}/repos`)
+  .then((response) => response.json())
+  .then((data) => {
+    // Tüm repoların isimlerini alın
+    const repoNames = data.map((repo) => repo.name);
+    
+    // Repoları konsola yazdırın
+    console.log('Kullanıcının repoları:', repoNames);
+
+    repoNames.forEach((repoName) => {
+        // GitHub API'si üzerinden README dosyasının içeriğini çekme
+        fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
+          .then((response) => response.json())
+          .then((data) => {
+            const readmeContent = atob(data.content); // Base64 kodlanmış içeriği çözümle
+            console.log(`README içeriği for ${repoName}:\n`, readmeContent);
+
+
+
+          })
+          .catch((error) => {
+            console.error(`GitHub API hatası for ${repoName}:`, error);
+
+            
+          });
+      });
+
+  })
+  .catch((error) => {
+    console.error('GitHub API hatası:', error);
+  });
+
+  // Her bir repo için README dosyasını çekme işlemi
