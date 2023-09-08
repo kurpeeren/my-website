@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 const githubUsername = 'kurpeeren'; // GitHub kullanıcı adı
 const repoName = 'kurpeeren'; // Depo adı
-const apiToken = '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'; // GitHub API anahtarı
+const apiToken = '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'; // GitHub API anahtarı
 
 // GitHub API'sı üzerinden README dosyasının içeriğini çekme
 fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`, {
