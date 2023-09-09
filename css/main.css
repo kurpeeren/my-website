@@ -13118,3 +13118,10 @@ max-width: 100%; /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
 height: auto; /* Yükseklik otomatik olarak ayarlanır */
 text-align: center; /* İçeriği yatayda ortala */
 }
+.logoImage{
+  display: flex;
+
+max-width: 100%; /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
+height: auto; /* Yükseklik otomatik olarak ayarlanır */
+text-align: center; /* İçeriği yatayda ortala */
+}
