@@ -12873,6 +12873,18 @@ body {
 
   padding: 50px 0;
 }
+.ag-courses_box_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);
@@ -13002,4 +13014,107 @@ body {
 
 .project-img-component{
  width: 110%;
+}
+
+.articles a {
+    text-decoration: none !important;
+    display: block;
+    margin-bottom: 0;
+    color: #555
+}
+
+.articles .badge {
+    font-size: 0.7em;
+    padding: 5px 10px;
+    line-height: 1;
+    margin-left: 10px
+}
+
+.articles .item {
+    padding: 20px;
+    background: #000
+}
+
+.articles .item:nth-of-type(even) {
+  background: #000
+}
+
+.articles .item .image {
+    min-width: 90px;
+    max-width: 90px;
+    height: 90px;
+    margin-right: 15px
+}
+
+.articles .item img {
+    padding: 3px;
+}
+
+.articles .item h3 {
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 0
+}
+
+.articles .item small {
+    color: #aaa;
+    font-size: 0.75em
+}
+
+.card-close {
+    position: absolute;
+    top: 15px;
+    right: 15px
+}
+
+.card-close .dropdown-toggle {
+    color: #999;
+    background: none;
+    border: none
+}
+
+.card-close .dropdown-toggle:after {
+    display: none
+}
+
+.card-close .dropdown-menu {
+    border: none;
+    min-width: auto;
+    font-size: 0.9em;
+    border-radius: 0;
+    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1)
+}
+
+.card-close .dropdown-menu a {
+    color: #999 !important
+}
+
+.card-close .dropdown-menu a:hover {
+    background: #796AEE;
+    color: #fff !important
+}
+
+.card-close .dropdown-menu a i {
+    margin-right: 10px;
+    -webkit-transition: none;
+    transition: none
+}
+
+.certificate {
+  background-color: #0a0a0a;
+  border-radius: 30px;
+  margin-bottom: -5px;
+  border: 5px;
+  border-color: rgb(126, 126, 126);
+  border-style: solid;
+  
+}
+.invertImage{
+  display: flex;
+  -webkit-filter: brightness(0) invert(1) saturate(0);
+filter: brightness(0) invert(1) saturate(0);
+max-width: 100%; /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
+height: auto; /* Yükseklik otomatik olarak ayarlanır */
+text-align: center; /* İçeriği yatayda ortala */
 }
