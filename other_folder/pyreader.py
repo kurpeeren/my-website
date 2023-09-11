@@ -1812,13 +1812,14 @@ from pydub import AudioSegment
 
 
 # Kelime listesi
+
 english_wordlist = english_wordlist.split("\n")
 tr_word = tr_word.split("\n")
 
 for i in range(len(tr_word)):
     tr_word[i] = tr_word[i][:-4]
 
-
+"""
 if(len(english_wordlist) == len(tr_word)):
     for i in range(len(tr_word)):
         tts = gTTS(english_wordlist[i], lang="en")
@@ -1834,17 +1835,18 @@ if(len(english_wordlist) == len(tr_word)):
         os.remove(str(i)+" turkce_" + tr_word[i] + ".mp3")
 
 
-# Klasördeki MP3 dosyalarını al
-mp3_dosyalari = [dosya for dosya in os.listdir(klasor_yolu) if dosya.endswith(".mp3")]
+# Klasördeki MP3 dosyalarını al"""
+mp3_dosyalari = [dosya for dosya in os.listdir(".") if dosya.endswith(".mp3")]
 
 # Ses dosyalarını birleştir
 birlesik_ses = AudioSegment.empty()
 for dosya_adi in mp3_dosyalari:
-    dosya_yolu = os.path.join(klasor_yolu, dosya_adi)
+    dosya_yolu = os.path.join(".", dosya_adi)
+    silence = AudioSegment.silent(duration=800)
     ses_parcası = AudioSegment.from_mp3(dosya_yolu)
-    birlesik_ses += ses_parcası
+    birlesik_ses += (ses_parcası + silence)
 
 # Birleştirilen sesi kaydet
 birlesik_ses.export("birlesik_ses.mp3", format="mp3")
 
-erenstd.cprint("Ses dosyaları başarıyla birleştirildi ve 'birlesik_ses.mp3' olarak kaydedildi.")
+erenstd.cprint("Ses dosyaları başarıyla birleştirildi ve 'birlesik_ses.mp3' olarak kaydedildi.","success")
