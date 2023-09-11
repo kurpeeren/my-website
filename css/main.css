@@ -93,7 +93,7 @@
   --bs-link-hover-color: #47acb8;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
-  --bs-body-text-color : #e4e4e4;
+  --bs-body-text-color: #e4e4e4;
 }
 
 *,
@@ -12711,11 +12711,11 @@ p.lead {
     max-width: 10rem;
     max-height: 10rem;
     -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 2em 10px var(--glow-color);
+      0px 0px 0.5em 0px var(--glow-color);
+    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+      0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+      0px 0px 2em 10px var(--glow-color);
     animation: border-flicker 2s linear infinite;
   }
 
@@ -12787,11 +12787,11 @@ p.lead {
   background-color: #1da1f2;
 }
 
-.social-icons .social-icon#instagram:hover{
+.social-icons .social-icon#instagram:hover {
   background-color: #e1306c;
 }
 
-.social-icons .social-icon#youtube:hover{
+.social-icons .social-icon#youtube:hover {
   background-color: rgb(255, 79, 79);
 }
 
@@ -12831,7 +12831,8 @@ section.resume-section .resume-section-content {
 /* Normalde gözükecek olan bileşen */
 
 .img-component {
-  display: none; /* Bileşeni gizle */
+  display: none;
+  /* Bileşeni gizle */
 }
 
 /* 768 pikselden daha küçük ekranlar için */
@@ -12839,8 +12840,10 @@ section.resume-section .resume-section-content {
   .img-component {
     display: block;
     width: 40vw;
-    margin-top: 100px; /* Üst kenar için 10 piksel margin ekleyin */
-    margin-bottom: 100px; /* Alt kenar için 10 piksel margin ekleyin */
+    margin-top: 100px;
+    /* Üst kenar için 10 piksel margin ekleyin */
+    margin-bottom: 100px;
+    /* Alt kenar için 10 piksel margin ekleyin */
     -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
       0px 0px 0.5em 0px var(--glow-color);
     -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
@@ -12849,7 +12852,7 @@ section.resume-section .resume-section-content {
       0px 0px 2em 10px var(--glow-color);
     animation: border-flicker 2s linear infinite;
   }
-  
+
 }
 
 .ag-format-container {
@@ -12861,6 +12864,7 @@ section.resume-section .resume-section-content {
 body {
   background-color: #000;
 }
+
 .ag-courses_box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12873,6 +12877,7 @@ body {
 
   padding: 50px 0;
 }
+
 .ag-courses_box_list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12885,6 +12890,7 @@ body {
 
   padding: 50px 0;
 }
+
 .ag-courses_item {
   -ms-flex-preferred-size: calc(33.33333% - 30px);
   flex-basis: calc(33.33333% - 30px);
@@ -12895,6 +12901,7 @@ body {
 
   border-radius: 28px;
 }
+
 .ag-courses-item_link {
   display: block;
   padding: 30px 20px;
@@ -12904,22 +12911,25 @@ body {
 
   position: relative;
 }
+
 .ag-courses-item_link:hover,
 .ag-courses-item_link:hover .ag-courses-item_date {
   text-decoration: none;
   color: #FFF;
 }
+
 .ag-courses-item_link:hover .ag-courses-item_bg {
   -webkit-transform: scale(10);
   -ms-transform: scale(10);
   transform: scale(10);
 }
+
 .ag-courses-item_title {
   min-height: 87px;
   margin: 0 0 25px;
 
   overflow: hidden;
-  
+
   font-weight: bold;
   font-size: 20px;
   color: #FFF;
@@ -12927,6 +12937,7 @@ body {
   z-index: 2;
   position: relative;
 }
+
 .ag-courses-item_date-box {
   font-size: 18px;
   color: #FFF;
@@ -12934,6 +12945,7 @@ body {
   z-index: 2;
   position: relative;
 }
+
 .ag-courses-item_date {
   font-weight: bold;
   color: var(--glow-color);
@@ -12942,6 +12954,7 @@ body {
   -o-transition: color .5s ease;
   transition: color .5s ease
 }
+
 .ag-courses-item_bg {
   height: 128px;
   width: 128px;
@@ -12958,18 +12971,23 @@ body {
   -o-transition: all .5s ease;
   transition: all .5s ease;
 }
+
 .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
   background-color: #3ecd5e;
 }
+
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
   background-color: #e44002;
 }
+
 .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
   background-color: #952aff;
 }
+
 .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
   background-color: #cd3e94;
 }
+
 .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
   background-color: #4c49ea;
 }
@@ -12981,6 +12999,7 @@ body {
     -ms-flex-preferred-size: calc(50% - 30px);
     flex-basis: calc(50% - 30px);
   }
+
   .ag-courses-item_title {
     font-size: 24px;
   }
@@ -12992,47 +13011,51 @@ body {
   }
 
 }
+
 @media only screen and (max-width: 992px) {
   .ag-courses_item {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
   }
+
   .ag-courses-item_title {
     min-height: 72px;
     line-height: 1;
 
     font-size: 24px;
   }
+
   .ag-courses-item_link {
     padding: 22px 40px;
     text-decoration: none;
   }
+
   .ag-courses-item_date-box {
     font-size: 16px;
   }
 }
 
-.project-img-component{
- width: 110%;
+.project-img-component {
+  width: 110%;
 }
 
 .articles a {
-    text-decoration: none !important;
-    display: block;
-    margin-bottom: 0;
-    color: #555
+  text-decoration: none !important;
+  display: block;
+  margin-bottom: 0;
+  color: #555
 }
 
 .articles .badge {
-    font-size: 0.7em;
-    padding: 5px 10px;
-    line-height: 1;
-    margin-left: 10px
+  font-size: 0.7em;
+  padding: 5px 10px;
+  line-height: 1;
+  margin-left: 10px
 }
 
 .articles .item {
-    padding: 20px;
-    background: #000
+  padding: 20px;
+  background: #000
 }
 
 .articles .item:nth-of-type(even) {
@@ -13040,65 +13063,65 @@ body {
 }
 
 .articles .item .image {
-    min-width: 90px;
-    max-width: 90px;
-    height: 90px;
-    margin-right: 15px
+  min-width: 90px;
+  max-width: 90px;
+  height: 90px;
+  margin-right: 15px
 }
 
 .articles .item img {
-    padding: 3px;
+  padding: 3px;
 }
 
 .articles .item h3 {
-    color: #555;
-    font-weight: 400;
-    margin-bottom: 0
+  color: #555;
+  font-weight: 400;
+  margin-bottom: 0
 }
 
 .articles .item small {
-    color: #aaa;
-    font-size: 0.75em
+  color: #aaa;
+  font-size: 0.75em
 }
 
 .card-close {
-    position: absolute;
-    top: 15px;
-    right: 15px
+  position: absolute;
+  top: 15px;
+  right: 15px
 }
 
 .card-close .dropdown-toggle {
-    color: #999;
-    background: none;
-    border: none
+  color: #999;
+  background: none;
+  border: none
 }
 
 .card-close .dropdown-toggle:after {
-    display: none
+  display: none
 }
 
 .card-close .dropdown-menu {
-    border: none;
-    min-width: auto;
-    font-size: 0.9em;
-    border-radius: 0;
-    -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1)
+  border: none;
+  min-width: auto;
+  font-size: 0.9em;
+  border-radius: 0;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1), -2px -2px 3px rgba(0, 0, 0, 0.1)
 }
 
 .card-close .dropdown-menu a {
-    color: #999 !important
+  color: #999 !important
 }
 
 .card-close .dropdown-menu a:hover {
-    background: #796AEE;
-    color: #fff !important
+  background: #796AEE;
+  color: #fff !important
 }
 
 .card-close .dropdown-menu a i {
-    margin-right: 10px;
-    -webkit-transition: none;
-    transition: none
+  margin-right: 10px;
+  -webkit-transition: none;
+  transition: none
 }
 
 .certificate {
@@ -13108,20 +13131,50 @@ body {
   border: 5px;
   border-color: rgb(126, 126, 126);
   border-style: solid;
-  
+
 }
-.invertImage{
+
+.invertImage {
   display: flex;
   -webkit-filter: brightness(0) invert(1) saturate(0);
-filter: brightness(0) invert(1) saturate(0);
-max-width: 100%; /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
-height: auto; /* Yükseklik otomatik olarak ayarlanır */
-text-align: center; /* İçeriği yatayda ortala */
+  filter: brightness(0) invert(1) saturate(0);
+  max-width: 100%;
+  /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
+  height: auto;
+  /* Yükseklik otomatik olarak ayarlanır */
+  text-align: center;
+  /* İçeriği yatayda ortala */
 }
-.logoImage{
+
+.logoImage {
   display: flex;
 
-max-width: 100%; /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
-height: auto; /* Yükseklik otomatik olarak ayarlanır */
-text-align: center; /* İçeriği yatayda ortala */
+  max-width: 100%;
+  /* Resmin genişliğini maksimum sayfa genişliğine ayarla */
+  height: auto;
+  /* Yükseklik otomatik olarak ayarlanır */
+  text-align: center;
+  /* İçeriği yatayda ortala */
+}
+
+.image-container {
+  position: relative;
+  width: 300px; /* Resimlerin genişliği */
+  height: 300px; /* Resimlerin yüksekliği */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.image-container img:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: luminosity; /* Maskeleme efekti için kullanılan blend modu */
+  
 }

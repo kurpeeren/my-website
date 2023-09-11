@@ -36,160 +36,223 @@ window.addEventListener('DOMContentLoaded', event => {
 const githubUsername = 'kurpeeren'; // GitHub kullanıcı adı
 const repoName = 'kurpeeren'; // Depo adı
 
-// GitHub API'sı üzerinden README dosyasının içeriğini çekme
-fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
-    .then((response) => response.json())
-    .then((data) => {
-        const readmeContent = atob(data.content); // Base64 kodlanmış içeriği çözümle
-        // README içeriğini kullanarak istediğiniz işlemi yapabilirsiniz
-        // Başlangıç ve bitiş etiketlerini belirtin
-        const startTag = '<div class="logos">';
-        const endTag = '</div>';
 
-        // Metni ayıklayacak düzenli ifadeyi oluşturun
-        const pattern = new RegExp(`${startTag}(.*?)${endTag}`, 's');
-        const match = readmeContent.match(pattern);
+function readAndFilterJSON(filePath) {
+    try {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', filePath, false); // false, senkron bir istek yapar
+        xhr.send();
 
-        // Eğer eşleşme varsa, metni alın
-        if (match) {
-            const extractedText = match[1];
-            console.log(extractedText);
+        if (xhr.status === 200) {
+            const jsonData = xhr.responseText;
+            console.log(jsonData);
 
-            // README içeriğini HTML olarak işleme
-            const parser = new DOMParser();
-            const readmeHTML = parser.parseFromString(extractedText, 'text/html');
-
-            // "Languages and Tools" başlığını içeren bölümü seçme
-            const languagesAndToolsSection = readmeHTML.querySelector('.logolist');
-
-            // İlgili HTML içeriğini hedef elemente yerleştirme
-            const targetElement = document.querySelector('.github-programingandtools');
-            targetElement.innerHTML = languagesAndToolsSection.innerHTML;
-
-            console.log(targetElement.innerHTML);
+            const result = JSON.parse(jsonData);
+            return result;
         } else {
-            console.log("Belirtilen etiketler arasında metin bulunamadı.");
+            console.error('Hata: Dosya okunamadı. Durum Kodu:', xhr.status);
+            return {};
         }
-    })
-    .catch((error) => {
-        console.error('GitHub API hatası:', error);
-    });
+    } catch (error) {
+        console.error('Hata:', error);
+        return {};
+    }
+}
+function removeEmptyObjects(jsonData) {
+    for (const key in jsonData) {
+        if (typeof jsonData[key] === 'object' && !Array.isArray(jsonData[key])) {
+            if (Object.keys(jsonData[key]).length === 0) {
+                delete jsonData[key];
+            } else {
+                removeEmptyObjects(jsonData[key]); // İç içe JSON nesneleri için tekrar çağır
+            }
+        }
+    }
+}
+
+
+const jsonFilePath = '../projects/project.json';
+const processedData = readAndFilterJSON(jsonFilePath);
+removeEmptyObjects(processedData);
+
+
+console.log(processedData);
+
+for (const key in processedData) {
+
+    if (processedData.hasOwnProperty(key)) {
+
+        const value = processedData[key];
+
+        // console.log(`${key}: ${value}`);
+        // console.log(value["open-website"])
+        // console.log(value["date-website"])
+        imageUrl = "https://github.com/kurpeeren/" + key + "/blob/main/images/main.png?raw=true"
+        const newCourseItem = createCourseItem(value["open-website"], imageUrl, value["date-website"], "https://github.com/kurpeeren/" + key)
+
+        const coursesBox = document.querySelector('.ag-courses_box');
+        coursesBox.appendChild(newCourseItem);
+
+    }
+}
+// İlgili HTML içeriğini hedef elemente yerleştirme
+const targetElement = document.querySelector('.ag-courses_box');
+targetElement.innerHTML += courseItemElement.innerHTML;
+
+// // GitHub API'sı üzerinden README dosyasının içeriğini çekme
+// fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         const readmeContent = atob(data.content); // Base64 kodlanmış içeriği çözümle
+//         // README içeriğini kullanarak istediğiniz işlemi yapabilirsiniz
+//         // Başlangıç ve bitiş etiketlerini belirtin
+//         const startTag = '<div class="logos">';
+//         const endTag = '</div>';
+
+//         // Metni ayıklayacak düzenli ifadeyi oluşturun
+//         const pattern = new RegExp(`${startTag}(.*?)${endTag}`, 's');
+//         const match = readmeContent.match(pattern);
+
+//         // Eğer eşleşme varsa, metni alın
+//         if (match) {
+//             const extractedText = match[1];
+//             console.log(extractedText);
+
+//             // README içeriğini HTML olarak işleme
+//             const parser = new DOMParser();
+//             const readmeHTML = parser.parseFromString(extractedText, 'text/html');
+
+//             // "Languages and Tools" başlığını içeren bölümü seçme
+//             const languagesAndToolsSection = readmeHTML.querySelector('.logolist');
+
+//             // İlgili HTML içeriğini hedef elemente yerleştirme
+//             const targetElement = document.querySelector('.github-programingandtools');
+//             targetElement.innerHTML = languagesAndToolsSection.innerHTML;
+
+//             console.log(targetElement.innerHTML);
+//         } else {
+//             console.log("Belirtilen etiketler arasında metin bulunamadı.");
+//         }
+//     })
+//     .catch((error) => {
+//         console.error('GitHub API hatası:', error);
+//     });
 
 
 
-// GitHub API'sı üzerinden kullanıcının tüm repolarını çekme
-fetch(`https://api.github.com/users/${githubUsername}/repos`)
-    .then((response) => response.json())
-    .then((data) => {
-        // Tüm repoların isimlerini alın
-        const repoNames = data.map((repo) => repo.name);
+// // GitHub API'sı üzerinden kullanıcının tüm repolarını çekme
+// fetch(`https://api.github.com/users/${githubUsername}/repos`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         // Tüm repoların isimlerini alın
+//         const repoNames = data.map((repo) => repo.name);
 
-        // Repoları konsola yazdırın
-        console.log('Kullanıcının repoları:', repoNames);
+//         // Repoları konsola yazdırın
+//         console.log('Kullanıcının repoları:', repoNames);
 
-        repoNames.forEach((repoName) => {
-            // GitHub API'si üzerinden README dosyasının içeriğini çekme
-            fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
-                .then((response) => response.json())
-                .then((data) => {
+//         repoNames.forEach((repoName) => {
+//             // GitHub API'si üzerinden README dosyasının içeriğini çekme
+//             fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
+//                 .then((response) => response.json())
+//                 .then((data) => {
 
-                    const readmeContent = atob(data.content); // Base64 kodlanmış içeriği çözümle
-                    //console.log(`README içeriği for ${repoName}:\n`, readmeContent);
+//                     const readmeContent = atob(data.content); // Base64 kodlanmış içeriği çözümle
+//                     //console.log(`README içeriği for ${repoName}:\n`, readmeContent);
 
-                    // README içeriğini kullanarak istediğiniz işlemi yapabilirsiniz
-                    // Başlangıç ve bitiş etiketlerini belirtin
-                    const startTag = '<!-- <p class="open-website" >';
-                    const endTag = '</p> -->';
-                    const startTagdate = '<!-- <p class="date-website" >';
-                    const endTagdate = '</p> -->';
-                    // Metni ayıklayacak düzenli ifadeyi oluşturun
-                    const patternName = new RegExp(`${startTag}(.*?)${endTag}`, 's');
-                    const patternDate = new RegExp(`${startTagdate}(.*?)${endTagdate}`, 's');
-                    const matchname = readmeContent.match(patternName);
-                    const matchdate = readmeContent.match(patternDate);
-                    // Eğer eşleşme varsa, metni alın
-                    if (matchname && matchdate) {
-                        const extractedText = matchname[1];
-                        const extractedTextDate = matchdate[1];
+//                     // README içeriğini kullanarak istediğiniz işlemi yapabilirsiniz
+//                     // Başlangıç ve bitiş etiketlerini belirtin
+//                     const startTag = '<!-- <p class="open-website" >';
+//                     const endTag = '</p> -->';
+//                     const startTagdate = '<!-- <p class="date-website" >';
+//                     const endTagdate = '</p> -->';
+//                     // Metni ayıklayacak düzenli ifadeyi oluşturun
+//                     const patternName = new RegExp(`${startTag}(.*?)${endTag}`, 's');
+//                     const patternDate = new RegExp(`${startTagdate}(.*?)${endTagdate}`, 's');
+//                     const matchname = readmeContent.match(patternName);
+//                     const matchdate = readmeContent.match(patternDate);
+//                     // Eğer eşleşme varsa, metni alın
+//                     if (matchname && matchdate) {
+//                         const extractedText = matchname[1];
+//                         const extractedTextDate = matchdate[1];
 
-                        console.log(extractedText);
-                        console.log(extractedTextDate);
-                        console.log(repoName);
-
-                        
-                          
-                          // Kullanım örneği:
-                          const courseData = {
-                            title: extractedText,
-                            imageUrl: "https://github.com/kurpeeren/"+repoName+"/blob/main/images/main.png?raw=true",
-                            startDate: extractedTextDate
-                          };
-                          
-                          const newCourseItem = createCourseItem(courseData.title, courseData.imageUrl, courseData.startDate,"https://github.com/kurpeeren/"+repoName);
-
-                          const coursesBox = document.querySelector('.ag-courses_box');
-                          coursesBox.appendChild(newCourseItem);
-
-                        // İlgili HTML içeriğini hedef elemente yerleştirme
-                        const targetElement = document.querySelector('.ag-courses_box');
-                        targetElement.innerHTML += courseItemElement.innerHTML;
-
-                        console.log(targetElement.innerHTML);
-                    } else {
-                        console.log("Belirtilen etiketler arasında metin bulunamadı.");
-                    }
+//                         console.log(extractedText);
+//                         console.log(extractedTextDate);
+//                         console.log(repoName);
 
 
 
-                })
-                .catch((error) => {
-                    console.error(`GitHub API hatası for ${repoName}:`, error);
+//                           // Kullanım örneği:
+//                           const courseData = {
+//                             title: extractedText,
+//                             imageUrl: "https://github.com/kurpeeren/"+repoName+"/blob/main/images/main.png?raw=true",
+//                             startDate: extractedTextDate
+//                           };
+
+//                           const newCourseItem = createCourseItem(courseData.title, courseData.imageUrl, courseData.startDate,"https://github.com/kurpeeren/"+repoName);
+
+//                           const coursesBox = document.querySelector('.ag-courses_box');
+//                           coursesBox.appendChild(newCourseItem);
+
+//                         // İlgili HTML içeriğini hedef elemente yerleştirme
+//                         const targetElement = document.querySelector('.ag-courses_box');
+//                         targetElement.innerHTML += courseItemElement.innerHTML;
+
+//                         console.log(targetElement.innerHTML);
+//                     } else {
+//                         console.log("Belirtilen etiketler arasında metin bulunamadı.");
+//                     }
 
 
-                });
-        });
 
-    })
-    .catch((error) => {
-        console.error('GitHub API hatası:', error);
-    });
+//                 })
+//                 .catch((error) => {
+//                     console.error(`GitHub API hatası for ${repoName}:`, error);
 
-// Her bir repo için README dosyasını çekme işlemi
 
-function createCourseItem(title, imageUrl, startDate ,projecturl) {
+//                 });
+//         });
+
+//     })
+//     .catch((error) => {
+//         console.error('GitHub API hatası:', error);
+//     });
+
+// // Her bir repo için README dosyasını çekme işlemi
+
+function createCourseItem(title, imageUrl, startDate, projecturl) {
     const courseItem = document.createElement('div');
     courseItem.classList.add('ag-courses_item');
-  
+
     const image = document.createElement('img');
     image.classList.add('ag-format-container', 'project-img-component');
     image.src = imageUrl;
     image.alt = '';
-  
+
     const link = document.createElement('a');
     link.href = projecturl;
     link.classList.add('ag-courses-item_link');
-  
+
     const backgroundDiv = document.createElement('div');
     backgroundDiv.classList.add('ag-courses-item_bg');
-  
+
     const titleDiv = document.createElement('div');
     titleDiv.classList.add('ag-courses-item_title');
     titleDiv.textContent = title;
-  
+
     const dateBox = document.createElement('div');
     dateBox.classList.add('ag-courses-item_date-box');
     dateBox.textContent = 'Start: ';
-  
+
     const date = document.createElement('span');
     date.classList.add('ag-courses-item_date');
     date.textContent = startDate;
-  
+
     dateBox.appendChild(date);
     link.appendChild(backgroundDiv);
     link.appendChild(titleDiv);
     link.appendChild(dateBox);
     courseItem.appendChild(image);
     courseItem.appendChild(link);
-  
+
     return courseItem;
-  }
+}
