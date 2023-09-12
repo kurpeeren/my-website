@@ -4,7 +4,10 @@
         "date-website": "22.02.2023"
     },
     "kurpeeren": {},
-    "my-website": {},
+    "my-website": {
+        "open-website": "My Website Project",
+        "date-website": "09.12.2023"
+    },
     "perspective-correction-tool": {},
     "plc-qr-program-control": {
         "open-website": "QR Code-Based Automation System",
