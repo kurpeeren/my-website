@@ -97,7 +97,7 @@ for (const key in processedData) {
 }
 // İlgili HTML içeriğini hedef elemente yerleştirme
 const targetElement = document.querySelector('.ag-courses_box');
-targetElement.innerHTML += courseItemElement.innerHTML;
+targetElement.innerHTML += coursesBox.innerHTML;
 
 // // GitHub API'sı üzerinden README dosyasının içeriğini çekme
 // fetch(`https://api.github.com/repos/${githubUsername}/${repoName}/readme`)
