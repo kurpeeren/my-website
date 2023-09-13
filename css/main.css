@@ -13223,8 +13223,8 @@ body {
 
 
 .resim-container {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   overflow: hidden; /* Taşan kısmı gizler */
 }
 
@@ -13237,7 +13237,7 @@ body {
 
 @media (max-width:900px) {
   .resim-container {
-    height: 300px;
+    height: 200px;
     width: 100%;
     overflow: hidden; /* Taşan kısmı gizler */
   }
@@ -13245,7 +13245,7 @@ body {
 
 @media (max-width:767px) {
   .resim-container {
-    height: 300px;
+    height: 200px;
     width: 100%;
     overflow: hidden; /* Taşan kısmı gizler */
   }
