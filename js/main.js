@@ -256,3 +256,64 @@ function createCourseItem(title, imageUrl, startDate, projecturl) {
 
     return courseItem;
 }
+
+$(document).ready(function(){
+    $(".fancybox").fancybox({
+          openEffect: "none",
+          closeEffect: "none"
+      });
+      
+      $(".zoom").hover(function(){
+          
+          $(this).addClass('transition');
+      }, function(){
+          
+          $(this).removeClass('transition');
+      });
+  });
+      
+
+// // Fotoğraf dosyalarının bulunduğu klasör yolu
+// var klasorYolu = "../galery/";
+
+// // İlgili divi seçin
+// var div = document.querySelector(".row photos");
+
+// // Klasördeki tüm dosyaları alın
+// fetch(klasorYolu)
+//     .then(response => response.text())
+//     .then(data => {
+//         // Klasör içeriğini parse edin ve dosya adlarını alın
+//         var dosyaAdlari = data.match(/href="([^"]+)/g).map(function(val) {
+//             return val.replace(/href="(.+?)"/, "$1");
+//         });
+
+//         // Dosya adlarından sadece resim dosyalarını seçin (örneğin .png, .jpg)
+//         var resimDosyalari = dosyaAdlari.filter(function(dosyaAdi) {
+//             return dosyaAdi.match(/\.(jpeg|jpg|png|gif|bmp)$/i);
+//         });
+
+//         // Her resim için bir div oluşturun ve içine resmi ekleyin
+//         resimDosyalari.forEach(function(resimDosyasi) {
+//             var fotoDiv = document.createElement("div");
+//             fotoDiv.className = "col-sm-6 col-md-4 col-lg-3 item";
+
+//             var link = document.createElement("a");
+//             link.href = klasorYolu + resimDosyasi;
+//             link.setAttribute("data-lightbox", "photos");
+
+//             var img = document.createElement("img");
+//             img.className = "img-fluid";
+//             img.src = klasorYolu + resimDosyasi;
+
+//             link.appendChild(img);
+//             fotoDiv.appendChild(link);
+//             var div = document.querySelector(".row photos");
+
+//             div.innerHTML += fotoDiv.innerHTML;
+
+//         });
+//     })
+//     .catch(error => {
+//         console.error("Klasör içeriği alınamadı: " + error);
+//     });
