@@ -13235,18 +13235,19 @@ body {
   object-fit: cover; /* Resmi yükseklik boyutuna göre büyütüp taşan kısmı kırp */
 }
 
-@media (max-width:900px) {
+/* @media (max-width:900px) {
   .resim-container {
     height: 200px;
     width: 100%;
-    overflow: hidden; /* Taşan kısmı gizler */
+    overflow: hidden; 
   }
-}
+} 
+*/
 
 @media (max-width:767px) {
   .resim-container {
-    height: 200px;
-    width: 100%;
+    height: 100px;
+    width: 100px;
     overflow: hidden; /* Taşan kısmı gizler */
   }
 }
