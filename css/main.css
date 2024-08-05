@@ -13036,7 +13036,7 @@ body {
 }
 
 .project-img-component {
-  width: 110%;
+  width: 100%;
 }
 
 .articles a {
@@ -13233,6 +13233,27 @@ body {
   width: 100%; /* Resmin genişliği öğenin genişliğine eşit */
   height: 100%; /* Resmin yüksekliği öğenin yüksekliğine eşit */
   object-fit: cover; /* Resmi yükseklik boyutuna göre büyütüp taşan kısmı kırp */
+}
+
+.youtube-link {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  width: 180px; /* Adjust as needed */
+  height: 170px; /* Adjust as needed */
+  overflow: hidden;
+  border-radius: 30px; /* Rounded corners */
+}
+.youtube-link .video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  object-fit: cover; /* Ensures the image covers the container */
+  transform: translate(-50%, -50%);
+  border-radius: 30px; /* Match the container's border radius */
 }
 
 /* @media (max-width:900px) {
